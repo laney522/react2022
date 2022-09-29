@@ -1,3 +1,8 @@
 export default function Top() {
-  return <div>로고, 텍스트, GNB</div>;
+  return (
+    <div>
+      <img src="/images/laney.jpg" alt="logo" />
+      <Headers as="h1">Laney</Headers>
+    </div>
+  );
 }
