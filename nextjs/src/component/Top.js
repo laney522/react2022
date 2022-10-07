@@ -12,7 +12,7 @@ export default function Top() {
         />
       </div>
       <img src="/images/laney.jpg" alt="logo" />
-      <Headers as="h1">Laney</Headers>
+      <Header as="h1">Laney</Header>
       <Gnb />
     </div>
   );

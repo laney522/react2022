@@ -1,3 +1,3 @@
-export default function About() {
+export default function Id() {
   return <div>ID</div>
 }
