@@ -1,11 +1,27 @@
-import styles from '../styles/Home.module.css'
+import { Head } from 'next/document';
+import { useEffect } from 'react';
+import styles from '../styles/Home.module.css';
+import Axios from 'axios';
 
 export default function Home() {
+  const API_URL =
+    "http://makeup-api.herokuapp.com/api/vi/products.json?brand=maybelline";
+
+  function getData() {
+    Axios.get(API_URL).then((res) => {
+      console.log(res.data);
+    });
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
-      create-next-app 으로 설치하면
-      <br />
-      1. 컴파일과 번들링이 자동으로 된다. (webpack 과 babel)
+      {/* <Head>
+        <title>HOME | Laney</title>
+      </Head> */}
     </div>
-  )
+  );
 }
