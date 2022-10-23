@@ -7,6 +7,7 @@ import { Divider, Header } from 'semantic-ui-react';
 
 export default function Home() {
   const [list, setList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const API_URL =
     "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
