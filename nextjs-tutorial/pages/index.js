@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import axios from 'axios';
 import ItemList from '../src/component/ItemList';
-import { Divider, Header } from 'semantic-ui-react';
+import { Divider, Header, Loader } from 'semantic-ui-react';
 
 export default function Home() {
   const [list, setList] = useState([]);
@@ -28,6 +28,13 @@ export default function Home() {
     <div>
       {/* <title>HOME | Laney</title> */}
       {isLoading && (
+        <div style={{ padding: "300px 0" }}>
+          <Loader inline="centered" active>
+            Loading
+          </Loader>
+        </div>
+      )}
+      {!isLoading && (
         <>
           <Divider />
           <Header as="h3" style={{ paddingTop: 40 }}>
