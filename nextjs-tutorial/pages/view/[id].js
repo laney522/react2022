@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Axios from 'axios';
 import { useRouter } from "next/router";
 import { useEffect, useState } from 'react';
@@ -10,7 +11,7 @@ const Post = () => {
   const [item, setItem] = useState({});
 
   // const API_URL = `http://makeup-api.herekuapp.com/api/v1/products/${id}.json`; ... typing error
-     const API_URL = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
+  const API_URL = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
 
   function getData() {
     Axios.get(API_URL).then((res) => {
@@ -29,3 +30,17 @@ const Post = () => {
 };
 
 export default Post;
+
+export async function getServerSideProps(context) {
+  const id = context.params.id;
+  const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
+  const res = await axios.get(apiUrl);
+  const data = res.data;
+
+  return {
+    props: {
+      item: data,
+    },
+  };
+}
+
