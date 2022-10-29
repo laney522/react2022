@@ -15,7 +15,8 @@ export default function Gnb() {
     if (data.name === 'home') {
       router.push("/");
     } else if (data.name === 'about') {
-      router.push("/about");
+      // router.push("/about");
+      location.href = "/about";
     }
   }
 
