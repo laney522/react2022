@@ -14,9 +14,9 @@ const Post = ({ item }) => {
             <title>{item.name}</title>
             <meta name="description" content={item.description}></meta>
           </Head>
+          <Item item={item} />;
         </>
       )}
-      <Item item={item} />;
     </>
   );
 };

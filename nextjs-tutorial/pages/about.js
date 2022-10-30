@@ -11,12 +11,12 @@ export default function About() {
   return (
     <div>
       <Header as="h3" style={{ paddingTop: 40 }} color="teal">
-        회사 소개  
-      </Header>     
+        회사 소개
+      </Header>
       <Divider />
       <List>
         <List.Item>
-          <List.Icon name='users'/>
+          <List.Icon name='users' />
           <List.Content>Semantic UI</List.Content>
         </List.Item>
         <List.Item>
@@ -36,6 +36,21 @@ export default function About() {
           </List.Content>
         </List.Item>
       </List>
+      <Header as="h3" style={{ paddingTop: 40 }} color="teal">
+        문의사항
+      </Header>
+      <Divider />
+      <Form>
+        <Form.Field>
+          <label>제목</label>
+          <input />
+        </Form.Field>
+        <Form.Field>
+          <label>내용</label>
+          <TextArea />
+        </Form.Field>
+        <Button color="green">보내기</Button>
+      </Form>
     </div>
-  ) 
+  );
 }

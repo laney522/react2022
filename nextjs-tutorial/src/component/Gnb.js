@@ -5,6 +5,7 @@ export default function Gnb() {
   const router = useRouter();
   console.log(router);
   let activeItem;
+  
   if (router.pathname === '/') {
     activeItem = "home";
   } else if (router.pathname === '/about') {
