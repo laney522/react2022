@@ -5,19 +5,19 @@ import axios from 'axios';
 import ItemList from '../src/component/ItemList';
 import { Divider, Header, Loader } from 'semantic-ui-react';
 
-export default function Home() { 
-  const [list, setList] = useState([]); 
-  const [isLoading, setIsLoading] = useState(true); 
+export default function Home({ list }) {
+  const [list, setList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-  function getData() { 
-    axios.get(API_URL).then((res) => { 
-      console.log(res.data); 
-      setList(res.data); 
+  function getData() {
+    axios.get(API_URL).then((res) => {
+      console.log(res.data);
+      setList(res.data);
       setIsLoading(false);
-    }); 
-  } 
+    });
+  }
 
   useEffect(() => {
     getData();
@@ -50,4 +50,18 @@ export default function Home() {
       )}
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const id = context.params.id;
+  const apiUrl = process.env.apiUrl;
+  const res = await axios.get(apiUrl);
+  const data = res.data;
+
+  return {
+    props: {
+      list: data,
+      name: process.env.name
+    },
+  };
 }
