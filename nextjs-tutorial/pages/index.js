@@ -1,12 +1,11 @@
 
-import { useEffect, useState } from 'react';
-import styles from '../styles/Home.module.css';
 import axios from 'axios';
 import ItemList from '../src/component/ItemList';
 import { Divider, Header, Loader } from 'semantic-ui-react';
 import Head from "next/head"
 
 export default function Home({ list }) {
+
   return (
     <div>
       <Head>
