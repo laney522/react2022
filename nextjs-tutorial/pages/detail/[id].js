@@ -30,7 +30,7 @@ export async function getStaticPaths(){
       { params: { id: '730' } },
       { params: { id: '729' } },
     ],
-    fallback: false
+    fallback: true,
   };
 }
 
