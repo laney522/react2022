@@ -58,8 +58,8 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const id = context.params.id;
   const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
-  const res = await Axios.get(apiUrl);
-  const data = res.data;
+  const res = await Axios.get(apiUrl);  
+  const data = res.data;  
 
   return {
     props: {
