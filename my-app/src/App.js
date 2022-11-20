@@ -1,19 +1,26 @@
-import { useFetch } from './useFetch';
-
-const baseUrl = 'https://jsonplaceholder.typicode.com';
+import { useState } from 'react';
 
 function App() {
-  const { data: userData } = useFetch(baseUrl, "users");
-  const { data: postData } = useFetch(baseUrl, "posts");
+  const [time, setTime] = useState(1);
+
+  const handleClick = () => {
+    let newTime;
+    if (time >= 12) {
+      newTime = 1;
+    } else {
+      newTime = time + 1;
+    }
+    setTime(newTime);
+  };
+
+  console.log("업데이트!!");
 
   return (
     <div>
-      <h1>User</h1>
-      {userData && <pre>{JSON.stringify(userData[0], null, 2)}</pre>}
-      <h1>Post</h1>
-      {postData && <pre>{JSON.stringify(postData[0], null, 2)}</pre>}
+      <span>현재 시각: {time}시</span>
+      <button onClick={handleClick}>Update</button>
     </div>
-  );
+  )
 }
 
 export default App;
